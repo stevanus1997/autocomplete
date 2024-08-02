@@ -1,0 +1,11 @@
+.container-result:hover {
+  @apply border-gray-400;
+}
+
+.container-result > input:focus {
+  border: none;
+}
+
+.option:hover {
+  @apply bg-lime-500;
+}
