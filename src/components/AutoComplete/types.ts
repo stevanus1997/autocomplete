@@ -70,7 +70,7 @@ export type TDropdownContent<T> = {
   search: string;
   dropdownContentRef: React.RefObject<HTMLDivElement>;
   handleSetSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleClearSearch: () => void;
+  handleClearSearch: (e: React.MouseEvent<SVGElement, MouseEvent>) => void;
   handleSetValue: (option: T) => void;
 } & Pick<
   TAutoComplete<T>,

@@ -3,7 +3,7 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const Option: FC<{
   option: string;
-  handleRemove: () => void;
+  handleRemove: (e: React.MouseEvent<SVGElement, MouseEvent>) => void;
 }> = ({ handleRemove, option }) => (
   <div className="rounded-3xl bg-gray-300 flex w-fit items-center py-1 px-2 justify-between">
     <span className="text-xs text-gray-600">{option}</span>

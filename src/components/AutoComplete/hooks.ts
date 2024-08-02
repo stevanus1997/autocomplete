@@ -33,7 +33,10 @@ const useAutoComplete = <T>({
 
   const handleToggleSearch = () => setShowSearch(!showSearch);
 
-  const handleClearSearch = () => setSearch("");
+  const handleClearSearch = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
+    e.stopPropagation();
+    setSearch("");
+  };
 
   const handleSetSearch = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(e.target.value);

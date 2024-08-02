@@ -73,7 +73,8 @@ const AutoComplete = <T,>({
         ) : (
           <Option
             option={getOptionLabel(value as T)}
-            handleRemove={() => {
+            handleRemove={(e) => {
+              e.stopPropagation();
               handler.handleRemoveValue(value);
             }}
             key={index}
