@@ -17,15 +17,76 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# autocomplete
+
+# Autocomplete Component
+
+This repository contains a customizable Autocomplete component built with React and TypeScript. It supports features like search highlighting, single and multiple selection, and optional use of portals for rendering the dropdown.
+
+## Features
+
+- **Search Highlighting**: Highlights search terms within the options.
+- **Single and Multiple Selection**: Supports both single and multiple selections of options.
+- **Portal Support**: Optionally renders the dropdown using a portal to avoid overflow issues.
+
+## Installation
+
+To use the Autocomplete component in your project, you can copy the relevant files and include them in your React project. Ensure you have the required dependencies installed:
+
+```bash
+npm install react react-dom react-icons underscore
+# or
+yarn add react react-dom react-icons underscore
+```
+
+## Usage
+
+### Props
+
+- **options**: Array of options to display.
+- **usePortal**: Boolean indicating whether to render the dropdown using a portal.
+- **getOptionLabel**: Function to get the label of an option.
+- **renderOption**: Function to render a custom option component.
+- **isMultiple**: Boolean indicating whether multiple selections are allowed.
+- **value**: The current value of the autocomplete.
+- **onChange**: Function to handle changes to the selected value(s).
+
+```javascript
+import React from 'react';
+import AutoComplete from './AutoComplete';
+
+const options = [
+  { id: '1', label: 'Option 1' },
+  { id: '2', label: 'Option 2' },
+  { id: '3', label: 'Option 3' },
+];
+
+const App = () => {
+  const [value, setValue] = React.useState<string | string[]>('');
+
+  return (
+    <div>
+      <h1>Autocomplete Example</h1>
+      <AutoComplete
+        options={options}
+        getOptionLabel={(option) => option.label}
+        value={value}
+        onChange={setValue}
+        isMultiple={false}
+      />
+    </div>
+  );
+};
+
+export default App;
+```
