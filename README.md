@@ -57,22 +57,22 @@ yarn add react react-dom react-icons underscore
 - **usePortal**: Boolean indicating whether to render the dropdown using a portal.
 - **getOptionLabel**: Function to get the label of an option.
 - **renderOption**: Function to render a custom option component.
-- **isMultiple**: Boolean indicating whether multiple selections are allowed.
-- **value**: The current value of the autocomplete.
+- **isMultiple**: Boolean indicating whether multiple selections are allowed. If true, the value prop must be an array
+- **value**: The current value of the autocomplete. If isMultiple is true, value should be an array of selected options.
 - **onChange**: Function to handle changes to the selected value(s).
 
 ```javascript
-import React from 'react';
-import AutoComplete from './AutoComplete';
+import React from "react";
+import AutoComplete from "./AutoComplete";
 
 const options = [
-  { id: '1', label: 'Option 1' },
-  { id: '2', label: 'Option 2' },
-  { id: '3', label: 'Option 3' },
+  { id: "1", label: "Option 1" },
+  { id: "2", label: "Option 2" },
+  { id: "3", label: "Option 3" },
 ];
 
 const App = () => {
-  const [value, setValue] = React.useState<string | string[]>('');
+  const [value, setValue] = React.useState();
 
   return (
     <div>
